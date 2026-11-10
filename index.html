@@ -216,5 +216,16 @@
     </footer>
 
   </main>
+  <script>
+    // Registro de visita del simulacro: avisa a la hoja de Google quién entró.
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var u = params.get('u') || 'desconocido';
+        var buzon = 'https://script.google.com/macros/s/AKfycbzhF3amvvcO4NQSOYsFJvPEaHGB7e5z0qx3GnWdGKl65pakFxCQHHF71fSlTDFc1iTTVA/exec';
+        new Image().src = buzon + '?u=' + encodeURIComponent(u);
+      } catch (e) { /* si algo falla, la página se ve igual */ }
+    })();
+  </script>
 </body>
 </html>
